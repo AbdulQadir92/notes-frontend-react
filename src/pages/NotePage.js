@@ -17,13 +17,13 @@ const NotePage = () => {
         if(id === 'new'){
             return
         }
-        let response = await fetch(`/api/notes/${id}/`);
+        let response = await fetch(`https://notes-app-b.herokuapp.com/api/notes/${id}/`);
         let data = await response.json();
         setNote(data);
     }
 
     const creatNote = async () => {
-        fetch(`/api/notes/create/`, {
+        fetch(`https://notes-app-b.herokuapp.com/api/notes/create/`, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(note)
@@ -31,7 +31,7 @@ const NotePage = () => {
     }
 
     const updateNote = async () => {
-        fetch(`/api/notes/${id}/update/`, {
+        fetch(`https://notes-app-b.herokuapp.com/api/notes/${id}/update/`, {
             method: 'PUT',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(note)
@@ -39,7 +39,7 @@ const NotePage = () => {
     }
 
     const deleteNote = async () => {
-        fetch(`/api/notes/${id}/delete/`, {
+        fetch(`https://notes-app-b.herokuapp.com/api/notes/${id}/delete/`, {
             method: 'DELETE',
             headers: {'Content-Type': 'application/json'}
         })
